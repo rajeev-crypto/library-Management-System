@@ -1,0 +1,15 @@
+<%= form_for @author do |f| %>
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Is the author deceased?" %>
+    <%= f.check_box :deceased %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Submit Author Information", class: 'btn btn-primary' %>
+  </div>
+<% end %>

@@ -1,0 +1,13 @@
+<h1>Edit <%= @genre.name %></h1>
+
+<% if @genre.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+      <% @genre.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= render 'form' %>

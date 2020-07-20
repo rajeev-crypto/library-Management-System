@@ -1,0 +1,39 @@
+<h1>Please Login</h1>
+
+<p id="notice"><%= notice %></p>
+
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @user, url: sessions_path, method: :post do |f| %>
+  <div class="form-group">
+    <%= f.label :email %><br>
+    <%= f.text_field :email, class: "form-control" %><br>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password %><br>
+    <%= f.password_field :password, class: "form-control" %><br>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign In", class: "btn btn-primary" %>
+  </div>
+<% end%>
+
+
+
+<!-- <br><br>
+
+Or login with Google...
+
+<br>
+
+<a href="/auth/google_oauth2"><img src="https://banner2.cleanpng.com/20180423/gkw/kisspng-google-logo-logo-logo-5ade7dc753b015.9317679115245306313428.jpg" width="50" height="50"/></a> -->

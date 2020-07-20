@@ -1,0 +1,39 @@
+<h1>Overdue Books</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Genre</th>
+      <th>Due Date</th>
+      <th>Checked Out to...</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @books.each do |book| %>
+      <% user = User.find(book.present_user_id) %>
+      <tr>
+        <td>
+          <%= book.title %>
+        </td>
+        <td>
+          <%= book.author.name %>
+        </td>
+        <td>
+          <%= book.genre.name %>
+        </td>
+        <td>
+          <%= book.check_out_logs.last.due_date %>
+        </td>
+        <td>
+          <%= user.name %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if @books == [] %>
+  <p align=center>There are currently no overdue books.</p>
+<% end %>

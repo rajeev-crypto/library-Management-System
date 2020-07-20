@@ -1,0 +1,50 @@
+<h1>Sign Up Here</h1>
+
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @user do |f| %>
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email %><br>
+    <%= f.text_field :email, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password %><br>
+    <%= f.password_field :password, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Please confirm your password" %><br>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Are you a librarian at the Flatiron Library?" %><br>
+    <%= f.check_box :librarian %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign Up", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<!-- <br><br>
+
+Or login with Google...
+
+<br> -->
+
+<!-- <a href="/auth/google_oauth2"><img src="https://banner2.cleanpng.com/20180423/gkw/kisspng-google-logo-logo-logo-5ade7dc753b015.9317679115245306313428.jpg" width="50" height="50"/></a> -->

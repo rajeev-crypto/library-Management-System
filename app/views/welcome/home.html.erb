@@ -1,0 +1,19 @@
+<h1>Welcome to the Shrifall library</h1>
+
+<br><br>
+
+<% if @user %>
+  <p><%= button_to "View Books", books_path, class: "btn btn-primary", method: :get %></p>
+  <p><%= button_to "View Authors", authors_path, class: "btn btn-primary", method: :get %></p>
+  <p><%= button_to "View Genres", genres_path, class: "btn btn-primary", method: :get %></p>
+<% end %>
+
+<br><br><br>
+
+<% if @user && @user.librarian %>
+  <h3>Librarian Functions</h3>
+  <%= link_to "Add Book", new_book_path %>&nbsp&nbsp
+  <%= link_to "Add Author", new_author_path %>&nbsp&nbsp
+  <%= link_to "Add Genre", new_genre_path %>&nbsp&nbsp
+  <%= link_to "View Overdue Books", overdue_path %>&nbsp&nbsp
+<% end %>

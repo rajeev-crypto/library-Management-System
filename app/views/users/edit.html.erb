@@ -1,0 +1,32 @@
+<h1>Change Password for <%= @user.name %></h1>
+
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @user do |f| %>
+  <div class="form-group">
+    <%= f.label "Current Password" %><br>
+    <%= f.password_field :old_password, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "New Password" %><br>
+    <%= f.password_field :password, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Confirm New Password" %><br>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Change Password", class: "btn btn-primary" %>
+  </div>
+<% end %>

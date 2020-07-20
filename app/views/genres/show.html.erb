@@ -1,0 +1,12 @@
+<h1><%= @genre.name %></h1>
+<% if @user.librarian %>
+  <%= button_to "Edit Genre", edit_genre_path(@genre), class:"btn btn-primary", method: :get %>
+<% end %>
+<br><br>
+
+<% if @genre.books != [] %>
+  <h2>Books in the genre of <%= @genre.name %></h2>
+  <% @genre.books.each do |book| %>
+    <p><%= link_to "#{book.title}", book_path(book) %> - <%= link_to "#{book.author.name}", author_path(book.author) %></p>
+  <% end %>
+<% end %>
